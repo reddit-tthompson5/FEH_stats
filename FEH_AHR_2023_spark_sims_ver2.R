@@ -4,7 +4,9 @@ source("FEH_summoning_header_ver5.R") #include the summoning header which includ
 
 #hero_array = c("R!Ophelia", "N!Camilla", "L!Veronica", "Fomortiis")
 
-n = 100000 #number of sessions to sim, in other words the number of trials
+n = 1000 #number of sessions to sim, in other words the number of trials
+	#set to n=1000 for the github repository so if someone runs it with the
+	#default values, it doesn't take too long to run
 
 target_color = c(1) #snipe on red = 1 if possible
 off_color = c(4) #pull cless, if no red, if possible
@@ -86,36 +88,40 @@ for(j in 1:n) #j represents a particular trial or summoning session
 
 	while(summoned < num_to_summon) #we keep summoning until we reach the num_to_summon
 	{
-		pity = floor(no_fives/5)*.005
+		pity = floor(no_fives/5)*.005 #calc pity
 		if(pity > max_pity)
 		{
 			max_pity = pity
 		}
 
-		charged = FALSE
+		charged = FALSE 
 		if(focus_charge == 3)
 		{
 			charged = TRUE
 		}
 		
-		new_circle = generate_circle(pity, focus_charge)
+		new_circle = generate_circle(pity, focus_charge) #generate summoning circle
 		circles_gen = circles_gen + 1
 
 		stone_colors = new_circle[1, ]
 		stone_rarity = new_circle[2, ]
 		stone_contents = new_circle[3, ]
 	
-		pulling = which(stone_colors %in% target_color)
-		if(identical(pulling, integer(0)))
+		pulling = which(stone_colors %in% target_color) #try to pull stones 
+										#w/target color(s)
+
+		if(identical(pulling, integer(0))) #if no stones w/target color(s)
 		{
 			circles_wo_target_color = circles_wo_target_color + 1
-			pulling = which(stone_colors %in% off_color)[1]
-			if(is.na(pulling))
+			pulling = which(stone_colors %in% off_color)[1] #try to pull secondary
+			
+			if(is.na(pulling)) #if no stones w/secondary color(s)
 			{	
-				pulling = 1
+				pulling = 1 #pull first stone
 			}
 		}
-		if((length(pulling) + summoned) > num_to_summon)
+		if((length(pulling) + summoned) > num_to_summon) #don't pull more than 
+											#num_to_summon
 		{
 			num_left = num_to_summon - summoned
 			pulling = pulling[1:num_left]
@@ -123,7 +129,7 @@ for(j in 1:n) #j represents a particular trial or summoning session
 		summoned = summoned + length(pulling)
 	
 		pulled = 0
-		for(i in pulling)
+		for(i in pulling) #for loop going through each stone we're pulling
 		{
 			stone_col = stone_colors[i]
 			stone_rar = stone_rarity[i]
@@ -161,7 +167,7 @@ for(j in 1:n) #j represents a particular trial or summoning session
 				no_fives = no_fives + 1
 				fours_focus_acq[stone_con] = fours_focus_acq[stone_con] + 1
 			}		
-			else if(stone_rar == 4)
+			else if(stone_rar == 4) #If we pull a 4-star special hero
 			{
 				no_fives = no_fives + 1
 				fours_spc_acq[stone_col] = fours_spc_acq[stone_col] + 1
@@ -228,9 +234,13 @@ if(length(which(color_5s)) > 1)
 odds_target = 
 	length(which(fives_focus_acq_n[, which(color_5s)] > 0))/(n*length(which(color_5s)))
 
-odds_5s = length(which(fives_acq != 0))/n
+odds_focus = length(which(rowSums(fives_focus_acq_n) > 0))/n
 
-results = round(c(mean_orbs, mean_5s, mean_focus, mean_color_5s, mean_target, 
-	100*odds_target, 100*odds_5s), 2)
+odds_5s = length(which(fives_acq > 0))/n
+
+results = round(c(mean_orbs, mean_5s, mean_focus, mean_target, 100*odds_target, 
+	100*odds_focus, 100*odds_5s), 2)
+
+results
 
 Ophelias = fives_focus_acq_n[, 1]

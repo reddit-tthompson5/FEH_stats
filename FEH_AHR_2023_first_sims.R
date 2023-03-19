@@ -6,6 +6,7 @@ source("FEH_summoning_header_ver5.R") #include the summoning header which includ
 #with the free summon in fire emblem heroes.
 #That is this script attempts to answer "How likely is it I pull a 5-star if I free-
 #summon on [color]?" on the 2023 AHR banner
+#Sorry this code isn't well commented at the moment. I was in a hurry.
 
 #hero_array = c("R!Ophelia", "N!Camilla", "L!Veronica", "Fomortiis")
 

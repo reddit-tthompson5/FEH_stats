@@ -4,7 +4,7 @@ source("FEH_summoning_header_ver5.R") #include the summoning header which includ
 
 #hero_array = c("R!Ophelia", "N!Camilla", "L!Veronica", "Fomortiis")
 
-n = 10000 #number of sessions to sim, in other words the number of trials
+n = 1000 #number of sessions to sim, in other words the number of trials
 	#set to n=1000 for the github repository so if someone runs it with the
 	#default values, it doesn't take too long to run
 

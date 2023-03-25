@@ -178,7 +178,13 @@ generate_circle = function(pity, f_charge)
 
 	#Assign stone contents for 5-star and 4-star focus heroes
 	stone_contents[fives_focus] = sample.int(num_focuses, length(fives_focus), replace = TRUE)
-	stone_contents[fours_focus] = sample(fours_focus_hero, length(fours_focus), replace = TRUE)
+	if(length(fours_focus_hero) > 1)
+	{
+		stone_contents[fours_focus] = sample(fours_focus_hero, length(fours_focus), replace = TRUE)
+	} else
+	{
+		stone_contents[fours_focus] = fours_focus_hero
+	}
 
 
 	#Assign the stone colors based off hero rarity

@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 roster = read.csv("FEH_Full_Roster.csv")
 
 #reg_five_stars is a fuction that counts all of the regular 5-star 

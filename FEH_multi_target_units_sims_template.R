@@ -14,10 +14,11 @@ desired_copies = c(10, 10, 10, 0) #how many copies of each we want (10 of
 num_to_complete = 2 #Any hero with zero desired copies is "completed" by 
 	#default, so in this case, the summoner wants to summon 10 copies of
 	#one of "Hero 1", "Hero 2", OR "Hero 3" and then stop.
-	#If num_to_complete > number of  focus heroes, script will only stop due to max_orbs
+	#If num_to_complete > number of focus heroes, script will only stop due to max_orbs
 off_color = c(3) #secondary color to pull if desired_hero's color does not appear. 
 	#Note: This color can match one of the heroes we're already summoning for, which
 	#indicates we'll continue to pull their color as a secondary after completing them.
+	#Set to green (3) by default.
 max_orbs = 10000 #used as a failsafe in this case. Can also be used to represent how 
 	#many orbs the summoner actually has and to stop the sim there
 
@@ -104,7 +105,7 @@ for(j in 1:n) #j represents a particular trial or summoning session
 	#(internal loop variables only)
 	no_fives = 0 #zero heroes since last five-star (used to calc pity rate)
 	focus_charge = 0 #no focus charges
-	colors_pulling = ini_colors_pulling
+	colors_pulling = ini_colors_pulling #initialize which colors we're pulling
 
 
 	keep_summoning = TRUE
@@ -176,7 +177,8 @@ for(j in 1:n) #j represents a particular trial or summoning session
 			else if(stone_rar == 2) #if we pull a non-focus 5-star hero
 			{
 				no_fives = max(0, (no_fives-20))
-				if(focus_charge < 3 & focus_charges_active)
+				if(focus_charge < 3 & focus_charges_active) 
+					#update focus charges (if they're being used)
 				{
 					focus_charge = focus_charge + 1
 				}
@@ -196,7 +198,7 @@ for(j in 1:n) #j represents a particular trial or summoning session
 				if(stone_rar == 1) #if we pull a 5-star focus
 				{
 					no_fives = 0
-					if(charged == TRUE)
+					if(charged == TRUE) #reset focus charges if used
 					{
 						charge_used = charge_used + 1
 						focus_charge = 0

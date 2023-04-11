@@ -2,27 +2,28 @@ rm(list = ls()) #clear the objects stored in memory
 source("FEH_summoning_header_ver6.R") #include the summoning header which includes
 	#the very important "generate_circle" function
 
-#hero_array = c("Hero 1", "Hero 2", "Hero 3", "Hero 4")
+#hero_array = c("Y!Hector", "Y!Eliwood", "Y!Rebecca", "Mark")
 
 n = 1000 #number of sessions to sim, in other words the number of trials
 	#set to n=1000 for the github repository so if someone runs it with the
 	#default values, it doesn't take too long to run
 
-target_color = c(1) #snipe on red = 1 if possible
-off_color = c(4) #pull cless = 4, if no red, if possible
-first_free = FALSE #don't include a free summon
+target_color = c(4) #snipe on cless = 4 if possible
+off_color = c(3) #pull green = 3, if no cless, if possible
+first_free = TRUE #include a free summon
 num_tickets = 0 #given no free tickets for banner
 num_to_summon = 40 #40 summons are needed to spark
+target_hero = 3 #index number of target hero. Only used to calc stats at end
+	#In this case, Y!Rebecca is indicated as the target
 
-hero_colors = c(4, 3, 2, 1)
-	#Hero 1 is cless (4), Hero 2 is green (3), Hero 3 is blue (2), 
-	#Hero 4 is red (1)
-
-num_focuses = length(hero_colors) #how many focus heroes are on the banner
-
+hero_colors = c(3, 1, 4, 2)
+	#Y!Hector is green (3), Y!Eliwood is red (1), Y!Rebecca is cless (4), 
+	#Mark is blue (2)
 fours_focus_hero = c(3)	#Index numbers of heroes that also appear as four-star
-	#focuses. In this case, "Hero 3" is a 4-star focus unit as well.
-	#If set to 0 (zero), indicates no four-star focus heroes.
+	#focuses. In this case, "Y!Rebecca" is a 4-star focus unit as well.
+	#If set to 0 (zero), indicates no 4-star focus heroes. 
+	#If no 4-star focus heroes, set ini_4s_focus_rate = 0 as well
+num_focuses = length(hero_colors) #how many focus heroes are on the banner
 
 ini_5s_focus_rate = 0.03 #The initial rate of 5-star focus heroes
 ini_5s_non_focus_rate = 0.03 #The initial rate of non-focus 5-star heroes
@@ -56,7 +57,6 @@ threes_prop = ini_3s_rate/ini_non_5s_rate
 fives_colors = rep(c(1, 2, 3, 4), reg_five_stars(max_ver, spc_cutoff))
 fours_spc_colors = rep(c(1, 2, 3, 4), four_star_specials(spc_cutoff))
 demote_colors = rep(c(1, 2, 3, 4), demotes(max_ver))
-
 
 
 
@@ -236,36 +236,23 @@ for(j in 1:n) #j represents a particular trial or summoning session
 }# end of trial/for loop
 
 
-
 fives_acq = rowSums(fives_focus_acq_n) + rowSums(fives_non_f_acq_n)
 
 mean_orbs = mean(orbs_spent_n)
 mean_5s = mean(fives_acq)
-mean_focus = mean(rowSums(fives_focus_acq_n))
-color_5s = hero_colors %in% target_color
-if(length(which(color_5s)) == 1)
-{
-	mean_color_5s = mean(fives_focus_acq_n[, which(color_5s)])
-	mean_target = mean(fives_focus_acq_n[, which(color_5s)])
-}
-if(length(which(color_5s)) > 1)
-{
-	mean_color_5s = mean(rowSums(fives_focus_acq_n[, which(color_5s)]))
-	mean_target = mean(colSums(fives_focus_acq_n[, which(color_5s)])/n)
-}
-
-odds_target = length(which(fives_focus_acq_n[, which(color_5s)] > 0))/
-		(n*length(which(color_5s)))
-
-odds_focus = length(which(rowSums(fives_focus_acq_n) > 0))/n
-
+mean_focus = mean(rowSums(fives_focus_acq_n) + rowSums(fours_focus_acq_n))
+mean_target = mean(fives_focus_acq_n[, target_hero] + 
+	fours_focus_acq_n[, target_hero])
+odds_target = length(which(fives_focus_acq_n[, target_hero] > 0 |
+	fours_focus_acq_n[, target_hero] > 0))/n
+odds_focus_5s = length(which(rowSums(fives_focus_acq_n) > 0))/n
 odds_5s = length(which(fives_acq > 0))/n
 
 results = matrix(0, 1, 7)
 results = data.frame(results)
-colnames(results) = c("avg orbs", "avg 5s", "avg f 5s", "avg target 5s", 
+colnames(results) = c("avg orbs", "avg 5s", "avg focuses", "avg target", 
 	"odds target", "odds f 5s", "odds 5s")
 results[1, ] = round(c(mean_orbs, mean_5s, mean_focus, mean_target, 
-	100*odds_target, 100*odds_focus, 100*odds_5s), 2)
+	100*odds_target, 100*odds_focus_5s, 100*odds_5s), 2)
 
-results
+print(results)

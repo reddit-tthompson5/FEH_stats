@@ -10,11 +10,13 @@ n = 1000 #number of sessions to sim, in other words the number of trials
 
 target_color = c(4) #snipe on cless = 4 if possible
 off_color = c(3) #pull green = 3, if no cless, if possible
+target_hero = 3 #index number of target hero. Only used to calc stats at end
+	#In this case, Y!Rebecca is indicated as the target
+
 first_free = TRUE #include a free summon
 num_tickets = 0 #given no free tickets for banner
 num_to_summon = 40 #40 summons are needed to spark
-target_hero = 3 #index number of target hero. Only used to calc stats at end
-	#In this case, Y!Rebecca is indicated as the target
+focus_charges_active = TRUE #does the banner use focus charges
 
 hero_colors = c(3, 1, 4, 2)
 	#Y!Hector is green (3), Y!Eliwood is red (1), Y!Rebecca is cless (4), 
@@ -181,7 +183,7 @@ for(j in 1:n) #j represents a particular trial or summoning session
 			} else if(stone_rar == 2) #If we pull a 5-star non-focus hero
 			{
 				no_fives = max(0, (no_fives-20))
-				if(focus_charge < 3)
+				if(focus_charges_active & focus_charge < 3)
 				{
 					focus_charge = focus_charge + 1
 				}

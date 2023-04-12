@@ -50,8 +50,7 @@ fives_non_focus_prop = ini_5s_non_focus_rate/ini_5s_rate
 ini_non_5s_rate = ini_4s_focus_rate + ini_4s_spc_rate + ini_4s_rate + ini_3s_rate
 fours_focus_prop = ini_4s_focus_rate/ini_non_5s_rate
 fours_spc_prop = ini_4s_spc_rate/ini_non_5s_rate
-fours_prop = ini_4s_rate/ini_non_5s_rate
-threes_prop = ini_3s_rate/ini_non_5s_rate
+demote_prop = (ini_3s_rate + ini_4s_rate)/ini_non_5s_rate
 
 
 # Create the color pools for regular 5-stars (pitybreakers), 4-star specials, and

@@ -85,7 +85,7 @@ charge_used_n = 0*c(1:n) #how often did we use a focus charge
 summoned_n = 0*c(1:n) #how many heroes did we summon during a trial (primarily used for error
 	#checking)
 
-time = proc.time()
+#time = proc.time()
 for(j in 1:n) #j represents a particular trial or summoning session
 {	
 	#initializing values
@@ -248,7 +248,7 @@ for(j in 1:n) #j represents a particular trial or summoning session
 	summoned_n[j] = summoned
 
 }# end of trial/for loop
-proc.time()-time
+#proc.time()-time
 
 fives_acq = rowSums(fives_focus_acq_n) + rowSums(fives_non_f_acq_n)
 

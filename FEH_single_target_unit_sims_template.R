@@ -39,7 +39,7 @@ ini_4s_spc_rate = 0.03 #The initial rate of 4-star special heroes
 ini_4s_rate = 0.52 #The initial rate of 4-star heroes
 ini_3s_rate = 0.36 #The initial rate of 3-star heroes
 
-max_ver = max(roster$version) #indicates we want to include all heroes up to and 
+ver_cutoff = max(roster$version) #indicates we want to include all heroes up to and 
 	#including this version in the regular 5-star (pitybreakers) pool
 spc_cutoff = 4.08 #indicates which version (including this version) to use for
 	#the 4-star special (not pitybreakers) pool

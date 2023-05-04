@@ -379,7 +379,7 @@ Pent,Fancy Fiance,Blue,Tome,Cav,Blazing Blade,Seasonal,3.05,20,37,33,34,19,21,14
 Louise,Eternal Devotion,Cless,Bow,Cav,Blazing Blade,Grail,3.05,20,39,31,34,17,30,151,No,
 Sigrun,Steadfast Bride,Red,Sword,Flyer,Path of Radiance,Seasonal,3.05,20,35,31,38,27,31,162,No,
 Tanith,Forthright Heart,Blue,Lance,Flyer,Path of Radiance,Seasonal,3.05,20,37,34,36,33,21,161,No,
-Naga,Dragon Divinity,Blue,Dragon,Flyer,Awakening,Mythic,3.05,20,37,30,36,33,26,162,No,
+Naga,Dragon Divinity,Blue,Dragon,Flyer,Awakening,Mythic,3.05,20,37,30,36,33,26,162,No,Shadow Dragon / (New) Mystery
 Corrin,Wailing Soul,Cless,Dragon,Inf,Fates,Five-star Regular,3.05,20,43,35,37,31,27,173,No,
 Gunnthra,Beaming Smile,Cless,Dagger,Cav,Heroes,Seasonal,3.06,20,39,33,37,17,24,150,No,
 Ylgr,Breaking the Ice,Green,Axe,Inf,Heroes,Grail,3.06,20,42,35,36,30,25,168,No,
@@ -763,7 +763,7 @@ Riev,Blood Beryl,Blue,Tome,Inf,Sacred Stones,Grail,6.01,10,43,39,25,23,40,170,No
 Joshua,Resolute Tempest,Cless,Dagger,Inf,Sacred Stones,Ascendant,6.01,10,41,39,43,29,25,177,No,
 Rennac,"Rich ""Merchant""",Green,Dagger,Inf,Sacred Stones,Five-star Regular,6.01,10,39,37,42,34,25,177,No,
 Nailah,Hatari Scorcher,Red,Beast,Inf,Radiant Dawn,Seasonal,6.01,10,40,39,43,35,25,182,No,
-Azura,Hatari Duet,Green,Tome,Cav,Fates,Harmonic,6.01,10,37,37,39,16,23,152,Yes,
+Azura,Hatari Duet,Green,Tome,Cav,Fates,Harmonic,6.01,10,37,37,39,16,23,152,Yes,Path of Radiance
 Caeda,Beloved Queen,Blue,Lance,Flyer,Shadow Dragon / (New) Mystery,Legendary,6.02,10,39,38,43,27,31,178,No,
 Niime,Mountain Hermit,Cless,Tome,Inf,Binding Blade,Five-star Regular,6.02,10,36,42,33,17,43,171,No,
 Hugh,Worldly Mage,Red,Tome,Inf,Binding Blade,Five-star Regular,6.02,10,40,38,42,27,24,171,No,
@@ -847,7 +847,7 @@ Muspell,Raging Inferno,Cless,Dragon,Cav,Heroes,Seasonal,6.09,5,40,43,26,41,30,18
 Lif,Arcane Blade,Red,Sword,Cav,Heroes,Rearmed,6.09,5,41,43,29,41,26,180,No,
 Lyn,Blazing Whirlwind,Blue,Lance,Inf,Blazing Blade,Seasonal,6.09,5,39,38,44,34,32,187,No,
 Ninian,Ice-Dragon Oracle,Green,Dragon,Cav,Blazing Blade,Legendary,6.09,5,44,37,41,22,24,168,Yes,
-Tana,Soothing Warmth,Green,Dagger,Flyer,Sacred Stones,Harmonic,6.09,5,39,39,42,26,32,178,No,
+Tana,Soothing Warmth,Green,Dagger,Flyer,Sacred Stones,Harmonic,6.09,5,39,39,42,26,32,178,No,Heroes
 Mordecai,Gentle Firetender,Green,Beast,Inf,Radiant Dawn,Grail,6.09,5,48,43,29,43,24,187,No,
 Rinkah,Consuming Flame,Red,Sword,Inf,Fates,Demote Seasonal,6.09,5,40,37,41,44,25,187,No,
 Hilda,Helping Hand,Green,Axe,Inf,Three Houses,Ascendant,6.09,5,42,42,43,34,26,187,No,

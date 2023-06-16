@@ -47,7 +47,7 @@ four_star_specials = function(spc_ver_cutoff=4.08)
 	
 	blue_4s_s = which((roster$type == "Five-star Regular" |
 		roster$type == "Brave" | roster$type == "Ascendant" |
-		(roster$name == "Ephraim" & roster$name == "Dynastic Duo")) & 
+		(roster$name == "Ephraim" & roster$title == "Dynastic Duo")) & 
 		roster$color == "Blue" & roster$version <= spc_ver_cutoff)
 
 	green_4s_s = which((roster$type == "Five-star Regular" |

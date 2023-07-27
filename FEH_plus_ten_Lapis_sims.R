@@ -92,7 +92,7 @@ for(j in 1:n) #j represents a particular trial or summoning session
 	charge_used = 0 #focus charge has been trigged zero times
 
 	num_Lapis = 0
-	#we keep summoning until we reach the desired copies or we don't have enough orbs
+	#we keep summoning until we reach the desired copies
 	while(num_Lapis < desired_Lapises)
 	{ 
 		pity = floor(no_fives/5)*.005 #calc pity

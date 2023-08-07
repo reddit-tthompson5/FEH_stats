@@ -55,7 +55,7 @@ demote_prop = (ini_3s_rate + ini_4s_rate)/ini_non_5s_rate
 ###START OF VARIABLES THAT NEED TO BE OVERWRITTEN FOR NON FULL ROSTER SIMS
 
 max_ver = max(roster$version)
-spc_cutoff = 4.08
+spc_cutoff = 5.02
 
 # Create the color pools for regular 5-stars (pitybreakers), 4-star specials, and
 # demotes (3/4-star heroes)

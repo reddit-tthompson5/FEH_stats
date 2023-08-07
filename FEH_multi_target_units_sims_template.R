@@ -44,7 +44,7 @@ ini_4s_rate = 0.52 #The initial rate of 4-star heroes
 ini_3s_rate = 0.36 #The initial rate of 3-star heroes
 
 ver_cutoff = max(roster$version)
-spc_cutoff = 4.08
+spc_cutoff = 5.02
 
 
 # We calculate the proportion of each type of 5-star, so we know how to split the pity

@@ -5,7 +5,7 @@ roster = read.csv("FEH_Full_Roster.csv")
 #(pitybreaker) heroes by color and returns them. "ver_cutoff" is the max
 #version of heroes to include. "spc_ver_cutoff" indicates the highest ver
 #number of 4-star special heroes, that aren't to be included in the count.
-reg_five_stars = function(ver_cutoff=max(roster$version), spc_ver_cutoff=4.08)
+reg_five_stars = function(ver_cutoff=max(roster$version), spc_ver_cutoff=5.02)
 {
 	reg_red_5s = which((roster$type == "Five-star Regular" |
 		roster$type == "Brave" | roster$type == "Ascendant") & 
@@ -39,7 +39,7 @@ reg_five_stars = function(ver_cutoff=max(roster$version), spc_ver_cutoff=4.08)
 }
 
 #similar to "reg_five_stars" function but counts 4-star special heroes instead
-four_star_specials = function(spc_ver_cutoff=4.08)
+four_star_specials = function(spc_ver_cutoff=5.02)
 {
 	red_4s_s = which((roster$type == "Five-star Regular" |
 		roster$type == "Brave" | roster$type == "Ascendant") & 

@@ -8,7 +8,7 @@ roster = read.csv("FEH_Full_Roster.csv")
 #regular 5-star heroes from special heroes. The spc_cutoff is the version 
 #number that includes the latest 4-star specials.
 
-roster_count = function(ver_cutoff = max(roster$version), spc_cutoff = 4.08)
+roster_count = function(ver_cutoff = max(roster$version), spc_cutoff = 5.02)
 {
 	hero_counts = matrix(0, 3, 4)
 	

@@ -36,7 +36,7 @@ ini_3s_rate = 0.36 #The initial rate of 3-star heroes
 
 max_ver = max(roster$version) #indicates we want to include all heroes up to and 
 	#including this version in the regular 5-star (pitybreakers) pool
-spc_cutoff = 4.08 #indicates which version (including this version) to use for
+spc_cutoff = 5.02 #indicates which version (including this version) to use for
 	#the 4-star special (not pitybreakers) pool
 
 # We calculate the proportion of each type of 5-star, so we know how to split the pity
